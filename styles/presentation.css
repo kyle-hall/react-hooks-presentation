@@ -1,8 +1,23 @@
+:root {
+  --red: rgb(185, 23, 0);
+  --black: #111;
+  --gold: rgb(236, 173, 59);
+  --white: rgb(223, 239, 254);
+  --brown: rgb(120, 79, 33);
+}
+
+*:hover {
+  border: 1px blue solid;
+}
+
 body {
   width: 100vw;
   height: 100vh;
-  background-color: rgb(185, 23, 0);
+  background-color: var(--red);
   overflow-x: hidden;
+  font-family: Roboto Slab, sans-serif;
+  font-size: 1.5em;
+  color: var(--black);
 }
 
 a {
@@ -14,13 +29,29 @@ a {
   font-size: 4em;
 }
 
+.slide:first-of-type {
+  margin-top: 30px;
+}
+
 .slide {
-  font-family: Roboto Slab, sans-serif;
-  font-size: 1.5em;
-  background-color: rgb(236, 173, 59);
+  background-color: var(--gold);
   max-width: 50em;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-bottom: 300px;
   padding: 30px;
   border-radius: 5px;
+}
+
+.next-navigator {
+  position: relative;
+  bottom: 120px;
+  right: 450px;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 48px;
+  right: 32px;
+  background-color: var(--gold);
+  padding: 30px;
 }
