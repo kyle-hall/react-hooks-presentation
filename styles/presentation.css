@@ -6,8 +6,8 @@
   --brown: rgb(120, 79, 33);
 }
 
-*:hover {
-  border: 1px blue solid;
+h2 {
+  margin-bottom: 48px;
 }
 
 body {
@@ -20,13 +20,13 @@ body {
   color: var(--black);
 }
 
-a {
-  text-decoration: none;
-}
-
 .reallyBigHeader {
   font-family: Pirata One, sans-serif;
   font-size: 4em;
+}
+
+.captain-hook-gif {
+  width: 50%;
 }
 
 .slide:first-of-type {
@@ -36,22 +36,20 @@ a {
 .slide {
   background-color: var(--gold);
   max-width: 50em;
+  min-height: 600px;
   margin: 0 auto;
-  margin-bottom: 300px;
+  margin-bottom: 200px;
   padding: 30px;
   border-radius: 5px;
+  box-shadow: 3px 3px 3px 3px rgba(3, 3, 3, 0.3);
 }
 
-.next-navigator {
-  position: relative;
-  bottom: 120px;
-  right: 450px;
+ul {
+  max-width: 75ch;
 }
 
-.back-to-top {
-  position: fixed;
-  bottom: 48px;
-  right: 32px;
-  background-color: var(--gold);
-  padding: 30px;
+li {
+  list-style: outside '\261B';
+  padding-left: 8px;
+  padding-bottom: 32px;
 }
