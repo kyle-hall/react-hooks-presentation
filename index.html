@@ -23,33 +23,33 @@
 
     <span class="slide-anchor" id="slide2"></span>
     <div class="slide">
-      <h2>A Little Background</h2>
-      <ul>
-        <li>
-          Before we launch into hooks, I'll give a little background on why we might we might want
-          hooks at all.
-        </li>
-        <li>
-          The main impetus for hooks is class-based components vs functional components.
-        </li>
-      </ul>
+      <h2>Preview</h2>
+      <p>We're here to talk about three things:</p>
+      <ol>
+        <li>What are React Hooks?</li>
+        <li>Why would I use them?</li>
+        <li>How do I use hooks in my own projects?</li>
+        <li>Bonus! Your Turn!</li>
+      </ol>
       <a class="next-link" href="#slide3">Next</a>
     </div>
 
     <span class="slide-anchor" id="slide3"></span>
     <div class="slide">
-      <h2>Functional Components</h2>
-      <ul>
-        <li>
-          Simple, JavaScript-y way to define components.
-        </li>
-        <li>
-          It's just a function that returns a chunk of JSX.
-        </li>
-      </ul>
-      <h3>Example:</h3>
+      <h2>What Are React Hooks?</h2>
+      <p>React Hooks are superpowers for functional components!</p>
+      <p>
+        Traditionally, functional components (like the one at the bottom of this slide) have been
+        relegated to dumb views.
+      </p>
+      <p>
+        This means they didn't have access to any local, changeable, state or any lifecycle methods
+        (e.g., componentDidMount).
+      </p>
+      <p>Functional components could only render the data that was passed in via props.</p>
+      <p>And they look something like this:</p>
       <pre>
-          <code class="lang-javascript">
+        <code class="lang-javascript"> 
             const PirateShip = props => (
               &lt;div&gt;
                 &lt;h1>I'm a Pirate Ship&lt;/h1&gt;
@@ -58,87 +58,118 @@
                 &lt;p>And, I have {props.crewmembers} able-bodied crewmembers.&lt;/p&gt;
               &lt;/div&gt;
             )
-          </code>
-        </pre>
+        </code>
+      </pre>
       <a class="next-link" href="#slide4">Next</a>
     </div>
 
     <span class="slide-anchor" id="slide4"></span>
     <div class="slide">
-      <h2>Class-based Components</h2>
-      <ul>
-        <li>
-          Use ES2015 classes that inherit from React to create components.
-        </li>
-        <li>
-          They allow a component to manage its own state, as well as define how it behaves at
-          different points in its life.
-        </li>
-        <li>
-          However, classes in JavaScript are a little deceptive. It's outside the scope of this talk
-          to go into why, so I'll leave this
-          <a href="https://github.com/petsel/not-awesome-es6-classes#tldr">link</a>
-          here with an excellent explanation and list of resources that do a fantastic job of
-          explaining why I would prefer to avoid ES2015 classes.
-        </li>
-      </ul>
-      <h3>Example:</h3>
+      <h2>Hooks Change That 😎</h2>
+      <p>
+        Hooks are functional way to work with many different changes in functional components.
+      </p>
+      <p>
+        In their simplest form, they give functional components access to local state and something
+        akin to lifecycle methods, which makes functional components capable of so much more!
+      </p>
+      <p>Here we change that PirateShip from the last slide to use hooks:</p>
       <pre>
         <code class="lang-javascript">
-          class PirateShip extends React.Component {
-            constructor(props) {
-              super(props)
-              this.state = {
-                masts: 2,
-                cannons: 20,
-                crewmembers: 50,
-              }
-            }
+            import React, { useState } from 'react'
 
-            render() {
+            const PirateShip = _ => {
+              const [pirateShip, setPirateShip] = useState({
+                masts: 2, cannons: 12, crewMembers: 30
+              })
+              
               return (
                 &lt;div&gt;
                   &lt;h1>I'm a Pirate Ship&lt;/h1&gt;
-                  &lt;p>I have {this.state.masts} masts.&lt;/p&gt;
-                  &lt;p>I have {this.state.cannons} cannons.&lt;/p&gt;
-                  &lt;p>And, I have {this.state.crewmembers} able-bodied crewmembers.&lt;/p&gt;
+                  &lt;p>I have {pirateShip.masts} masts.&lt;/p&gt;
+                  &lt;p>I have {pirateShip.cannons} cannons.&lt;/p&gt;
+                  &lt;p>And, I have {pirateShip.crewMembers} able-bodied crewmembers.&lt;/p&gt;
                 &lt;/div&gt;
               )
             }
-          }
+
+            export default PirateShip
         </code>
       </pre>
+      <p>This example shows off the `useState` hook.</p>
+      <p>
+        It takes the initial state as argument and returns the current state object and a function
+        to change that state.
+      </p>
       <a class="next-link" href="#slide5">Next</a>
     </div>
 
     <span class="slide-anchor" id="slide5"></span>
     <div class="slide">
-      <h2>So... Why would I ever use Class-based Components</h2>
+      <h2>So... what do I get out of using hooks?</h2>
       <ul>
-        <li>Well, really, because React requires it.</li>
-        <li>Class-based components are the only way to have local component state.</li>
-        <li>Class-based components are the only to have access to the lifecycle methods.</li>
+        <li>Concise Code</li>
+        <li>Render performance optimizations</li>
         <li>
-          Functional components were relegated to use for "dumb view" components that could only use
-          the data they were given.
+          Code that does what you want the first time without tripping you up
         </li>
-        <li>Until today!</li>
+        <li>
+          <a href="https://elated-bohr-7e3d49.netlify.com/">Forms Example</a> - <a href="https://github.com/kyle-hall/react-forms-with-hooks">Code</a>
+        </li>
       </ul>
       <a class="next-link" href="#slide6">Next</a>
     </div>
 
     <span class="slide-anchor" id="slide6"></span>
     <div class="slide">
-      <img
-        src="https://media.giphy.com/media/ehTMCiPzFTiak/giphy.gif"
-        alt="Nintendo's Super Smash Brother New Challenger Message"
-      />
-      <h2>React Hooks</h2>
+      <h2>What's wrong with my class-based components?</h2>
       <ul>
-        <li>React hooks give functional components superpowers!</li>
+        <li>Overhead</li>
         <li>
-          Hooks make it possible to use local component state and something akin to lifecycle
-          methods in a functional component!
+          More code that's less shareable
+          <pre>
+              <code class="lang-javascript">
+                  import React from 'react'
+      
+                  class PirateShip extends React.Component {
+                    constructor(props) {
+                      super(props)
+                      this.state = {
+                        masts: 0,
+                        cannons: 0,
+                        crewMembers: 0,
+                      }
+
+                      this.getMyShip = this.getMyShip.bind(this)
+                    }
+
+                    componentDidMount() {
+                      this.getMyShip()
+                    }
+
+                    componentDidUpdate() {
+                      this.getMyShip()
+                    }
+
+                    getMyShip() {
+                      // Call an api to get ship details
+                    }
+
+                    render() {
+                      // ...
+                    }
+                  }
+
+                  export default PirateShip
+              </code>
+        </li>
+        <li>`this`</li>
+        <li>Classes in ES6 just aren't great as a feature of the language: <a href="https://github.com/petsel/not-awesome-es6-classes">References</a></li>
+        <li>Have to remember to use a constructor, super, and bind all of your methods.</li>
+        <li>
+          These are fine in components you've already written, so don't throw away everything and
+          rewrite in hooks. But, maybe, consider writing new components using hooks and functional
+          components.
         </li>
       </ul>
       <a class="next-link" href="#slide7">Next</a>
@@ -146,58 +177,21 @@
 
     <span class="slide-anchor" id="slide7"></span>
     <div class="slide">
-      <h2>Let's Redo that PirateShip component:</h2>
-      <pre>
-        <code class="lang-javascript">
-          import React, { useState } from 'react'
-
-          const PirateShip = () => {
-            const [state, setState] = useState({masts: 2, cannons: 20, crewmembers: 50})
-
-            return (
-              &lt;div&gt;
-                &lt;h1>I'm a Pirate Ship&lt;/h1&gt;
-                &lt;p>I have {state.masts} masts.&lt;/p&gt;
-                &lt;p>I have {state.cannons} cannons.&lt;/p&gt;
-                &lt;p>And, I have {state.crewmembers} able-bodied crewmembers.&lt;/p&gt;
-              &lt;/div&gt;
-            )
-          }
-        </code>
-      </pre>
-      <ul>
-        <li>This is the same component as the class-based version above.</li>
-        <li>
-          useState just takes the initial state for the component and returns the state and the
-          function used to set new state.
-        </li>
-        <li>
-          And, this is much simpler code. I don't have to remember the constructor or the separate
-          render function inside the class. I don't have to deal with the weirdness that is ES6
-          classes.
-        </li>
-        <li>This enables functions to much more viable throughout an application!</li>
-      </ul>
+      <h2>Live Demo</h2>
+      <a href="https://codesandbox.io/s/gallant-ride-evh45">Link to the CodeSandbox</a>
       <a class="next-link" href="#slide8">Next</a>
     </div>
 
     <span class="slide-anchor" id="slide8"></span>
     <div class="slide">
-      <h2>Resources</h2>
-      <ul>
-        <li>The official <a href="https://reactjs.org/docs/hooks-intro.html">docs</a></li>
-        <li>
-          This Syntax.fm podcast: <a href="https://syntax.fm/show/092/react-hooks">Episode 92</a>
-        </li>
-        <li>
-          A project I put together with tests:
-          <a href="https://github.com/kyle-hall/react-hooks-with-typescript">TDD React Hooks</a>
-        </li>
-        <li>
-          This cool form I made using hooks:
-          <a href="https://elated-bohr-7e3d49.netlify.com/">React Forms with Hooks</a>
-        </li>
-      </ul>
+      <h2>Bonus Section: Your Turn!</h2>
+      <p>We talked about:</p>
+      <ol>
+        <li>What are React Hooks?</li>
+        <li>Why would I use them?</li>
+        <li>How do I use hooks in my own projects?</li>
+      </ol>
+      <p>And now you get to try things out with a fun kata!</p>
     </div>
   </body>
 </html>
