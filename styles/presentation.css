@@ -34,14 +34,38 @@ body {
 }
 
 .slide {
+  display: flex;
+  flex-direction: column;
+
   background-color: var(--gold);
   max-width: 50em;
   min-height: 500px;
   margin: 0 auto;
-  margin-bottom: 200px;
+  margin-bottom: 600px;
   padding: 30px;
   border-radius: 5px;
   box-shadow: 3px 3px 3px 3px rgba(3, 3, 3, 0.3);
+}
+
+.slide-anchor {
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.next-link {
+  align-self: flex-end;
+  justify-self: flex-end;
+  text-decoration: none;
+  background-color: var(--red);
+  padding: 10px 20px;
+}
+
+.next-link:link {
+  color: var(--white);
+}
+
+.next-link:visited {
+  color: var(--white);
 }
 
 ul {
@@ -54,6 +78,7 @@ li {
   padding-bottom: 32px;
 }
 
-pre {
-  background-color: white;
+.slide img {
+  height: 20em;
+  width: 25em;
 }
